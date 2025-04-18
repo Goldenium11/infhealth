@@ -1,0 +1,40 @@
+-- EXECUTE ONCE YOU'RE MASKED
+local Infinite_Stamina = true
+local Infinite_Ammo = {
+    Primary = true,
+    Secondary = true,
+    Gadget = true
+}
+
+local LocalPlayer = getcharacter(getlocalplayer())
+local Stored = {
+    PrimaryAmmo = getvalue(findfirstchild(LocalPlayer, "PrimaryAmmo")),
+    SecondaryAmmo = getvalue(findfirstchild(LocalPlayer, "SecondaryAmmo")),
+    GadgetAmmo = getvalue(findfirstchild(LocalPlayer, "GadgetAmmo")),
+
+    EquipmentAmount = getvalue(findfirstchild(LocalPlayer, "EquipmentLeft")),
+}
+
+while true do
+    if Infinite_Stamina then
+        local Stamina = findfirstchild(LocalPlayer, "Stamina")
+        setvalue(Stamina, 10000)
+    end
+
+    if Infinite_Ammo.Primary then
+        local Ammo = findfirstchild(LocalPlayer, "PrimaryAmmo")
+        setvalue(Ammo, Stored.PrimaryAmmo)
+    end
+
+    if Infinite_Ammo.Secondary then
+        local Ammo = findfirstchild(LocalPlayer, "SecondaryAmmo")
+        setvalue(Ammo, Stored.SecondaryAmmo)
+    end
+
+    if Infinite_Ammo.Gadget then
+        local Ammo = findfirstchild(LocalPlayer, "GadgetAmmo")
+        setvalue(Ammo, Stored.GadgetAmmo)
+    end
+
+    wait()
+end
