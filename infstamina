@@ -1,0 +1,13 @@
+local Infinite_Stamina = true
+local LocalPlayer = getcharacter(getlocalplayer())
+
+
+while true do
+    if Infinite_Stamina then
+        local Stamina = findfirstchild(LocalPlayer, "Stamina")
+        setvalue(Stamina, 10000)
+    end
+
+
+    wait()
+end
