@@ -1,0 +1,11 @@
+local Infinite_Health = true
+local LocalPlayer = getcharacter(getlocalplayer())
+
+while true do
+    if Infinite_Health then
+        local Health = findfirstchild(LocalPlayer, "Health")
+        setvalue(Health, 10000)
+    end
+
+    wait()
+end
